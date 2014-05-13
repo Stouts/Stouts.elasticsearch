@@ -1,0 +1,22 @@
+---
+
+elasticsearch_enabled: yes                      # The role is enabled
+elasticsearch_version: 1.1.1                    # Elasticsearch version
+elasticsearch_download_url: https://download.elasticsearch.org/elasticsearch/elasticsearch
+elasticsearch_apt_repos:
+    - 'ppa:webupd8team/java'
+elasticsearch_apt_java_package: oracle-java7-installer
+elasticsearch_home: /usr/share/elasticsearch
+elasticsearch_confdir: /etc/elasticsearch
+elasticsearch_datadir: /var/lib/elasticsearch
+elasticsearch_workdir: /tmp/elasticsearch
+elasticsearch_logdir: /var/log/elasticsearch
+elasticsearch_plugindir: "{{elasticsearch_home}}/plugins"
+elasticsearch_user: elasticsearch               # Elasticsearch user
+elasticsearch_group: elasticsearch              # Elasticsearch group
+elasticsearch_plugins: []                       # Manage elasticsearch plugins (install/remove)
+                                                # Ex. elasticsearch_plugins:
+                                                #       - name: <plugin name>
+                                                #         url: <optional plugin url>
+                                                #         remove: yes # Optional the plugin will be removed
+elasticsearch_max_open_files: 65535
