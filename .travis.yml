@@ -23,4 +23,4 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
 
-  - curl localhost:9200 || exit 1
+  - sudo /etc/init.d/elasticsearch status || exit 1
