@@ -10,5 +10,8 @@
 - include: plugins.yml
   tags: [elasticsearch, elasticsearch-plugins]
 
+- include: aws.yml
+  tags: [elasticsearch, elasticsearch-plugins, aws]
+
 - service: name=elasticsearch state=started enabled=yes
   tags: [elasticsearch]
