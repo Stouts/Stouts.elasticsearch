@@ -87,6 +87,29 @@ Example:
       - name: lukas-vlcek/bigdesk
 ```
 
+#### Enabling Added Features
+#### Configuring EC2
+The following variables need to be defined in your playbook or inventory:
+
+- elasticsearch_plugin_aws_version
+
+See [https://github.com/elasticsearch/elasticsearch-cloud-aws](https://github.com/elasticsearch/elasticsearch-cloud-aws) for the version that most accurately matches your installation.
+
+The following variables provide a for now limited configuration for the plugin. More options may be available in the future (see [http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/modules-discovery-ec2.html)](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/modules-discovery-ec2.html)):
+
+- elasticsearch_plugin_aws_ec2_groups
+- elasticsearch_plugin_aws_ec2_ping_timeout
+- elasticsearch_plugin_aws_access_key
+- elasticsearch_plugin_aws_secret_key
+
+### Installing plugins
+You will need to define an array called `elasticsearch_plugins` in your playbook or inventory, such that:
+```
+elasticsearch_plugins:
+- { name: '<plugin name>', url: '<[optional] plugin url>' }
+- ...
+```
+
 #### License
 
 Licensed under the MIT License. See the LICENSE file for details.
