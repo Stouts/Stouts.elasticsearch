@@ -540,3 +540,10 @@ action.auto_create_index: {{ elasticsearch_misc_auto_create_index }}
 {% if elasticsearch_misc_disable_delete_all_indices is defined %}
 action.disable_delete_all_indices: {{ elasticsearch_misc_disable_delete_all_indices }}
 {% endif %}
+{% if elasticsearch_script_disable_dynamic is defined %}
+script.disable_dynamic: {{ elasticsearch_script_disable_dynamic }}
+{% endif %}
+{% if elasticsearch_script_groovy_sandbox_enabled is defined %}
+script.groovy.sandbox.enabled: {{ elasticsearch_script_groovy_sandbox_enabled }}
+{% endif %}
+
