@@ -2,6 +2,7 @@ Stouts.elasticsearch
 ====================
 
 [![Build Status](https://travis-ci.org/Stouts/Stouts.elasticsearch.png)](https://travis-ci.org/Stouts/Stouts.elasticsearch)
+[![Stories in Ready](https://badge.waffle.io/Stouts/Stouts.elasticsearch.svg?label=ready&title=Ready)](http://waffle.io/Stouts/Stouts.elasticsearch)
 
 Ansible role for manage [Elasticsearch](www.elasticsearch.org)
 
