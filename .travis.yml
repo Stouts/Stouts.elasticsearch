@@ -25,3 +25,7 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
 
   - sudo /etc/init.d/elasticsearch status || exit 1
+
+elasticsearch_plugins:
+    - name: mobz/elasticsearch-head
+      dir: head

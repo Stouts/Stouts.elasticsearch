@@ -32,6 +32,7 @@ elasticsearch_plugins: []                       # Manage elasticsearch plugins (
                                                 # Ex. elasticsearch_plugins:
                                                 #       - name: <plugin name>
                                                 #         url: <optional plugin url>
+                                                #         dir: <optional plugin dir>
                                                 #         remove: yes # Optional the plugin will be removed
 elasticsearch_max_open_files: 65535
 ```
