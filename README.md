@@ -1,13 +1,14 @@
 Stouts.elasticsearch
 ====================
 
-[![Build Status](https://travis-ci.org/Stouts/Stouts.elasticsearch.png)](https://travis-ci.org/Stouts/Stouts.elasticsearch)
-[![Stories in Ready](https://badge.waffle.io/Stouts/Stouts.elasticsearch.svg?label=ready&title=Ready)](http://waffle.io/Stouts/Stouts.elasticsearch)
+[![Build Status](http://img.shields.io/travis/Stouts/Stouts.elasticsearch.svg?style=flat-square)](https://travis-ci.org/Stouts/Stouts.elasticsearch)
+[![Galaxy](http://img.shields.io/badge/galaxy-Stouts.elasticsearch-blue.svg?style=flat-square)](https://galaxy.elasticsearch.com/list#/roles/876)
+[![Tag](http://img.shields.io/github/tag/Stouts/Stouts.elasticsearch.svg?style=flat-square)]()
 
 Ansible role for manage [Elasticsearch](www.elasticsearch.org)
 
 * Install and configure Elasticsearch
-* Install/remove Elasticsearch pllugins
+* Install/remove Elasticsearch plugins
 
 
 #### Variables
