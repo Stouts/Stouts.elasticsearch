@@ -2,8 +2,7 @@ Stouts.elasticsearch
 ====================
 
 [![Build Status](http://img.shields.io/travis/Stouts/Stouts.elasticsearch.svg?style=flat-square)](https://travis-ci.org/Stouts/Stouts.elasticsearch)
-[![Galaxy](http://img.shields.io/badge/galaxy-Stouts.elasticsearch-blue.svg?style=flat-square)](https://galaxy.elasticsearch.com/list#/roles/876)
-[![Tag](http://img.shields.io/github/tag/Stouts/Stouts.elasticsearch.svg?style=flat-square)]()
+[![Galaxy](http://img.shields.io/badge/galaxy-Stouts.elasticsearch-blue.svg?style=flat-square)](https://galaxy.ansible.com/list#/roles/876)
 
 Ansible role for manage [Elasticsearch](www.elasticsearch.org)
 
