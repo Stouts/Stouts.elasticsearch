@@ -23,3 +23,7 @@
   apt: deb=/tmp/elasticsearch-{{elasticsearch_version}}.deb dpkg_options=force-confnew
   when: not version_exists.stat.exists
 
+- name: elasticsearch-install | Setup passlib
+  apt: pkg=python-passlib
+  when: elasticsearch_proxy_auth
+

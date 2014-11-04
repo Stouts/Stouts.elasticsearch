@@ -28,9 +28,7 @@
 # multiple clusters on the same network, make sure you're using unique names.
 #
 # cluster.name: elasticsearch
-{% if elasticsearch_cluster_name is defined %}
-cluster.name: {{ elasticsearch_cluster_name }}
-{% endif %}
+{% if elasticsearch_cluster_name is defined %}cluster.name: {{ elasticsearch_cluster_name }}{% endif %}
 
 #################################### Node #####################################
 
@@ -38,9 +36,7 @@ cluster.name: {{ elasticsearch_cluster_name }}
 # from configuring them manually. You can tie this node to a specific name:
 #
 # node.name: "Franz Kafka"
-{% if elasticsearch_node_name is defined %}
-node.name: {{ elasticsearch_node_name }}
-{% endif %}
+{% if elasticsearch_node_name is defined %}node.name: {{ elasticsearch_node_name }}{% endif %}
 
 # Every node can be configured to allow or deny being eligible as the master,
 # and to allow or deny to store the data.
@@ -48,16 +44,12 @@ node.name: {{ elasticsearch_node_name }}
 # Allow this node to be eligible as a master node (enabled by default):
 #
 # node.master: true
-{% if elasticsearch_node_master is defined %}
-node.master: {{ elasticsearch_node_master }}
-{% endif %}
+{% if elasticsearch_node_master is defined %}node.master: {{ elasticsearch_node_master }}{% endif %}
 #
 # Allow this node to store data (enabled by default):
 #
 # node.data: true
-{% if elasticsearch_node_data is defined %}
-node.data: {{ elasticsearch_node_data }}
-{% endif %}
+{% if elasticsearch_node_data is defined %}node.data: {{ elasticsearch_node_data }}{% endif %}
 
 # You can exploit these settings to design advanced cluster topologies.
 #
@@ -90,16 +82,12 @@ node.data: {{ elasticsearch_node_data }}
 # is a simple key value pair, similar to node.key: value, here is an example:
 #
 # node.rack: rack314
-{% if elasticsearch_node_rack is defined %}
-node.rack: {{ elasticsearch_node_rack }}
-{% endif %}
+{% if elasticsearch_node_rack is defined %}node.rack: {{ elasticsearch_node_rack }}{% endif %}
 
 # By default, multiple nodes are allowed to start from the same installation location
 # to disable it, set the following:
 # node.max_local_storage_nodes: 1
-{% if elasticsearch_node_max_local_storage_nodes is defined %}
-node.max_local_storage_nodes: {{ elasticsearch_node_max_local_storage_nodes }}
-{% endif %}
+{% if elasticsearch_node_max_local_storage_nodes is defined %}node.max_local_storage_nodes: {{ elasticsearch_node_max_local_storage_nodes }}{% endif %}
 
 #################################### Index ####################################
 
@@ -117,16 +105,12 @@ node.max_local_storage_nodes: {{ elasticsearch_node_max_local_storage_nodes }}
 # Set the number of shards (splits) of an index (5 by default):
 #
 # index.number_of_shards: 5
-{% if elasticsearch_index_number_of_shards is defined %}
-index.number_of_shards: {{ elasticsearch_index_number_of_shards }}
-{% endif %}
+{% if elasticsearch_index_number_of_shards is defined %}index.number_of_shards: {{ elasticsearch_index_number_of_shards }}{% endif %}
 
 # Set the number of replicas (additional copies) of an index (1 by default):
 #
 # index.number_of_replicas: 1
-{% if elasticsearch_index_number_of_replicas is defined %}
-index.number_of_replicas: {{ elasticsearch_number_of_replicas }}
-{% endif %}
+{% if elasticsearch_index_number_of_replicas is defined %}index.number_of_replicas: {{ elasticsearch_number_of_replicas }}{% endif %}
 
 # Note, that for development on a local machine, with small indices, it usually
 # makes sense to "disable" the distributed features:
@@ -155,28 +139,16 @@ index.number_of_replicas: {{ elasticsearch_number_of_replicas }}
 # Use the Index Status API (<http://localhost:9200/A/_status>) to inspect
 # the index status.
 
-{% if elasticsearch_index_mapper_dynamic is defined %}
-index.mapper_dynamic: {{ elasticsearch_index_mapper_dynamic }}
-{% endif %}
-{% if elasticsearch_misc_query_bool_max_clause_count is defined %}
-index.query.bool.max_clause_count: {{ elasticsearch_misc_query_bool_max_clause_count }}
-{% endif %}
+{% if elasticsearch_index_mapper_dynamic is defined %}index.mapper_dynamic: {{ elasticsearch_index_mapper_dynamic }}{% endif %}
+{% if elasticsearch_index_query_bool_max_clause_count is defined %}index.query.bool.max_clause_count: {{ elasticsearch_index_query_bool_max_clause_count }}{% endif %}
 
 #################################### Paths ####################################
 
 # Path to directory containing configuration (this file and logging.yml):
-#
-# path.conf: /path/to/conf
-{% if elasticsearch_confdir is defined %}
 path.conf: {{ elasticsearch_confdir }}
-{% endif %}
 
 # Path to directory where to store index data allocated for this node.
-#
-# path.data: /path/to/data
-{% if elasticsearch_datadir is defined %}
 path.data: {{ elasticsearch_datadir }}
-{% endif %}
 
 # Can optionally include more than one location, causing data to be striped across
 # the locations (a la RAID 0) on a file level, favouring locations with most free
@@ -185,31 +157,20 @@ path.data: {{ elasticsearch_datadir }}
 # path.data: /path/to/data1,/path/to/data2
 
 # Path to temporary files:
-#
-# path.work: /path/to/work
-{% if elasticsearch_workdir is defined %}
 path.work: {{ elasticsearch_workdir }}
-{% endif %}
 
 # Path to log files:
-#
-# path.logs: /path/to/logs
-{% if elasticsearch_logdir is defined %}
 path.logs: {{ elasticsearch_logdir }}
-{% endif %}
 
 # Path to where plugins are installed:
-#
-# path.plugins: /path/to/plugins
-{% if elasticsearch_plugindir is defined %}
 path.plugins: {{ elasticsearch_plugindir }}
-{% endif %}
+
 
 #################################### Plugin ###################################
 
 # If a plugin listed here is not installed for current node, the node will not start.
-#
 # plugin.mandatory: mapper-attachments,lang-groovy
+{% if elasticsearch_plugin_mandatory is defined %}plugin.mandatory: {{ elasticsearch_plugin_mandatory }}{% endif %}
 
 
 ################################### Memory ####################################
@@ -219,10 +180,7 @@ path.plugins: {{ elasticsearch_plugindir }}
 #
 # Set this property to true to lock the memory:
 #
-#
-{% if elasticsearch_memory_bootstrap_mlockall is defined %}
-bootstrap.mlockall: {{ elasticsearch_memory_bootstrap_mlockall }}
-{% endif %}
+{% if elasticsearch_bootstrap_mlockall is defined %}bootstrap.mlockall: {{ elasticsearch_bootstrap_mlockall }}{% endif %}
 
 # Make sure that the ES_MIN_MEM and ES_MAX_MEM environment variables are set
 # to the same value, and that the machine has enough memory to allocate
@@ -242,59 +200,45 @@ bootstrap.mlockall: {{ elasticsearch_memory_bootstrap_mlockall }}
 # Set the bind address specifically (IPv4 or IPv6):
 #
 # network.bind_host: 192.168.0.1
-{% if elasticsearch_network_bind_host is defined %}
-network.bind_host: {{ elasticsearch_network_bind_host }}
-{% endif %}
+{% if elasticsearch_network_bind_host is defined %}network.bind_host: {{ elasticsearch_network_bind_host }}{% endif %}
 
 # Set the address other nodes will use to communicate with this node. If not
 # set, it is automatically derived. It must point to an actual IP address.
 #
 # network.publish_host: 192.168.0.1
-{% if elasticsearch_network_publish_host is defined %}
-network.publish_host: {{ elasticsearch_network_publish_host }}
-{% endif %}
+{% if elasticsearch_network_publish_host is defined %}network.publish_host: {{ elasticsearch_network_publish_host }}{% endif %}
 
 # Set both 'bind_host' and 'publish_host':
 #
-# network.host: 192.168.0.1
-{% if elasticsearch_network_host is defined %}
 network.host: {{ elasticsearch_network_host }}
-{% endif %}
 
 # Set a custom port for the node to node communication (9300 by default):
 #
 # transport.tcp.port: 9300
-{% if elasticsearch_network_transport_tcp_port is defined %}
-transport.tcp.port: {{ elasticsearch_network_transport_tcp_port }}
-{% endif %}
+{% if elasticsearch_transport_tcp_port is defined %}transport.tcp.port: {{ elasticsearch_transport_tcp_port }}{% endif %}
 
 # Enable compression for all communication between nodes (disabled by default):
 #
 # transport.tcp.compress: true
-{% if elasticsearch_network_transport_tcp_compress is defined %}
-transport.tcp.compress: {{ elasticsearch_network_transport_tcp_compress }}
-{% endif %}
+{% if elasticsearch_transport_tcp_compress is defined %}transport.tcp.compress: {{ elasticsearch_transport_tcp_compress }}{% endif %}
 
 # Set a custom port to listen for HTTP traffic:
 #
-# http.port: 9200
-{% if elasticsearch_network_http_port is defined %}
-http.port: {{ elasticsearch_network_http_port }}
-{% endif %}
+http.port: {{ elasticsearch_http_port }}
 
 # Set a custom allowed content length:
 #
 # http.max_content_length: 100mb
-{% if elasticsearch_network_http_max_content_length is defined %}
-http.max_content_length: {{ elasticsearch_network_http_max_content_length }}
-{% endif %}
+{% if elasticsearch_http_max_content_length is defined %}http.max_content_length: {{ elasticsearch_http_max_content_length }}{% endif %}
 
 # Disable HTTP completely:
 #
-# http.enabled: false
-{% if elasticsearch_network_http_enabled is defined %}
-http.enabled: {{ elasticsearch_network_http_enabled }}
-{% endif %}
+{% if elasticsearch_http_enabled is defined %}http.enabled: {{ elasticsearch_http_enabled }}{% endif %}
+
+# Enable or disable cross-origin resource sharing, i.e. whether a browser on another origin can do requests to Elasticsearch.
+http.cors.enabled: {{ 'no' if elasticsearch_proxy else elasticsearch_http_cors_enabled }}
+http.cors.allow-origin: {{ elasticsearch_http_cors_allow_origin }}
+http.cors.allow-methods: {{ elasticsearch_http_cors_allow_methods }}
 
 ################################### Gateway ###################################
 
@@ -308,10 +252,7 @@ http.enabled: {{ elasticsearch_network_http_enabled }}
 
 # The default gateway type is the "local" gateway (recommended):
 #
-# gateway.type: local
-{% if elasticsearch_gateway_type is defined %}
 gateway.type: {{ elasticsearch_gateway_type }}
-{% endif %}
 
 # Settings below control how and when to start the initial recovery process on
 # a full cluster restart (to reuse as much local data as possible when using shared
@@ -320,26 +261,20 @@ gateway.type: {{ elasticsearch_gateway_type }}
 # Allow recovery process after N nodes in a cluster are up:
 #
 # gateway.recover_after_nodes: 1
-{% if elasticsearch_gateway_recover_after_nodes is defined %}
-gateway.recover_after_nodes: {{ elasticsearch_gateway_recover_after_nodes }}
-{% endif %}
+{% if elasticsearch_gateway_recover_after_nodes is defined %}gateway.recover_after_nodes: {{ elasticsearch_gateway_recover_after_nodes }}{% endif %}
 
 # Set the timeout to initiate the recovery process, once the N nodes
 # from previous setting are up (accepts time value):
 #
 # gateway.recover_after_time: 5m
-{% if elasticsearch_gateway_recover_after_time is defined %}
-gateway.recover_after_time: {{ elasticsearch_gateway_recover_after_time }}
-{% endif %}
+{% if elasticsearch_gateway_recover_after_time is defined %}gateway.recover_after_time: {{ elasticsearch_gateway_recover_after_time }}{% endif %}
 
 # Set how many nodes are expected in this cluster. Once these N nodes
 # are up (and recover_after_nodes is met), begin recovery process immediately
 # (without waiting for recover_after_time to expire):
 #
 # gateway.expected_nodes: 2
-{% if elasticsearch_gateway_expected_nodes is defined %}
-gateway.expected_nodes: {{ elasticsearch_gateway_expected_nodes }}
-{% endif %}
+{% if elasticsearch_gateway_expected_nodes is defined %}gateway.expected_nodes: {{ elasticsearch_gateway_expected_nodes }}{% endif %}
 
 ############################# Recovery Throttling #############################
 
@@ -533,15 +468,14 @@ monitor.jvm.gc.ConcurrentMarkSweep.debug: {{ elasticsearch_gc_soncurrent_mark_sw
 {% endif %}
 
 ################################### Varia #####################################
+#
+script.disable_dynamic: {{elasticsearch_script_disable_dynamic}}
 
 {% if elasticsearch_misc_auto_create_index is defined %}
 action.auto_create_index: {{ elasticsearch_misc_auto_create_index }}
 {% endif %}
 {% if elasticsearch_misc_disable_delete_all_indices is defined %}
 action.disable_delete_all_indices: {{ elasticsearch_misc_disable_delete_all_indices }}
-{% endif %}
-{% if elasticsearch_script_disable_dynamic is defined %}
-script.disable_dynamic: {{ elasticsearch_script_disable_dynamic }}
 {% endif %}
 {% if elasticsearch_script_groovy_sandbox_enabled is defined %}
 script.groovy.sandbox.enabled: {{ elasticsearch_script_groovy_sandbox_enabled }}
