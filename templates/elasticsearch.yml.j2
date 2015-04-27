@@ -200,17 +200,18 @@ path.plugins: {{ elasticsearch_plugindir }}
 # Set the bind address specifically (IPv4 or IPv6):
 #
 # network.bind_host: 192.168.0.1
-{% if elasticsearch_network_bind_host is defined %}network.bind_host: {{ elasticsearch_network_bind_host }}{% endif %}
+network.bind_host: {{ elasticsearch_network_bind_host }}
 
 # Set the address other nodes will use to communicate with this node. If not
 # set, it is automatically derived. It must point to an actual IP address.
 #
 # network.publish_host: 192.168.0.1
-{% if elasticsearch_network_publish_host is defined %}network.publish_host: {{ elasticsearch_network_publish_host }}{% endif %}
+network.publish_host: {{ elasticsearch_network_publish_host }}
 
+{% if elasticsearch_network_bind_host != elasticsearch_network_publish_host %}
 # Set both 'bind_host' and 'publish_host':
-#
 network.host: {{ elasticsearch_network_host }}
+{% endif %}
 
 # Set a custom port for the node to node communication (9300 by default):
 #
