@@ -101,6 +101,15 @@ elasticsearch_transport_tcp_port:
 elasticsearch_use_gc_logging:
 ```
 
+Additional variables eg. for plugins can be defined with `elasticsearch_yml`:
+```yaml
+elasticsearch_yml: |
+  cloud.aws.access_key: {{ cloud_aws_access_key }}
+  cloud.aws.secret_key: {{ cloud_aws_secret_key }}
+```
+
+`elasticsearch_yml` will be appended to the end of `elasticsearch.yml` file.
+
 #### Usage
 
 Add `Stouts.elasticsearch` to your roles and setup the variables in your playbook file.
