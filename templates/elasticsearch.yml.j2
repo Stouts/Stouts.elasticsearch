@@ -482,3 +482,6 @@ action.disable_delete_all_indices: {{ elasticsearch_misc_disable_delete_all_indi
 script.groovy.sandbox.enabled: {{ elasticsearch_script_groovy_sandbox_enabled }}
 {% endif %}
 
+{% if elasticsearch_yml is defined %}
+{{ elasticsearch_yml }}
+{% endif %}
