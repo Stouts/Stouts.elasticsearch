@@ -27,6 +27,10 @@ elasticsearch_version: 1.1.1                    # Elasticsearch version
 elasticsearch_download_url: https://download.elasticsearch.org/elasticsearch/elasticsearch
 elasticsearch_apt_repos:
 - 'ppa:webupd8team/java'
+elasticsearch_apt_repo_keys: []                 # Install APT keys
+                                                # Ex. elasticsearch_apt_repo_keys:
+                                                #       - server: <server name>
+                                                #         key: <key id>
 elasticsearch_apt_java_package: oracle-java7-installer
 
 elasticsearch_user: elasticsearch               # Elasticsearch user
@@ -126,6 +130,21 @@ Example:
     elasticsearch_plugins:
     - name: lukas-vlcek/bigdesk
 ```
+
+#### Debian Configuration
+
+Use the following configuration to install Java packages on Debian based systems:
+
+```yaml
+elasticsearch_apt_repos:
+  - 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu precise main'
+  - 'deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu precise main'
+elasticsearch_apt_repo_keys:
+  - server: 'hkp://keyserver.ubuntu.com:80'
+    key: 'EEA14886'
+```
+
+Refer to [here](http://www.webupd8.org/2012/06/how-to-install-oracle-java-7-in-debian.html) for more information.
 
 #### License
 
