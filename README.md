@@ -131,19 +131,6 @@ Example:
     - name: lukas-vlcek/bigdesk
 ```
 
-#### Debian Configuration
-
-Use the following configuration to install Java packages on Debian based systems:
-
-```yaml
-elasticsearch_apt_repos:
-  - 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu precise main'
-  - 'deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu precise main'
-elasticsearch_apt_repo_keys:
-  - server: 'hkp://keyserver.ubuntu.com:80'
-    key: 'EEA14886'
-```
-
 Refer to [here](http://www.webupd8.org/2012/06/how-to-install-oracle-java-7-in-debian.html) for more information.
 
 #### License
@@ -153,3 +140,11 @@ Licensed under the MIT License. See the LICENSE file for details.
 #### Feedback, bug-reports, requests, ...
 
 Are [welcome](https://github.com/Stouts/Stouts.elasticsearch/issues)!
+
+If you wish to express your appreciation for the role, you are welcome to send
+a postcard to:
+
+    Kirill Klenov
+    pos. Severny 8-3
+    MO, Istra, 143500
+    Russia
