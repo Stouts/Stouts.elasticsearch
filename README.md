@@ -84,6 +84,7 @@ elasticsearch_index_mapper_dynamic:
 elasticsearch_index_number_of_replicas:
 elasticsearch_index_number_of_shards:
 elasticsearch_index_query_bool_max_clause_count:
+elasticsearch_indices_cache_filter_size:
 elasticsearch_java_opts:
 elasticsearch_max_locked_memory:
 elasticsearch_network_bind_host:
