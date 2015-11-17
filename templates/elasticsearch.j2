@@ -38,7 +38,7 @@ WORK_DIR={{elasticsearch_workdir}}
 # ElasticSearch configuration directory
 CONF_DIR={{elasticsearch_confdir}}
 
-{% if elasticsearch_1x_series == True %}
+{% if elasticsearch_1x_series == "True" %}
 # ElasticSearch configuration file (elasticsearch.yml)
 CONF_FILE={{elasticsearch_confdir}}/elasticsearch.yml
 {% endif %}
