@@ -38,8 +38,10 @@ WORK_DIR={{elasticsearch_workdir}}
 # ElasticSearch configuration directory
 CONF_DIR={{elasticsearch_confdir}}
 
+{% if elasticsearch_version is not "2.0.0" }
 # ElasticSearch configuration file (elasticsearch.yml)
 CONF_FILE={{elasticsearch_confdir}}/elasticsearch.yml
+{% endif %}
 
 # Additional Java OPTS
 #ES_JAVA_OPTS=
