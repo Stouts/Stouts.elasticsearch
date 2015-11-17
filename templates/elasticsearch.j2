@@ -38,9 +38,10 @@ WORK_DIR={{elasticsearch_workdir}}
 # ElasticSearch configuration directory
 CONF_DIR={{elasticsearch_confdir}}
 
-{% if {{ elasticsearch_version }} match("^2")  %}
+# {{ elasticsearch_2x_series }}
+{% if elasticsearch_2x_series  == ""  %}
 # ElasticSearch configuration file (elasticsearch.yml)
-CONF_FILE={{elasticsearch_confdir}}/elasticsearch.yml
+# CONF_FILE={{elasticsearch_confdir}}/elasticsearch.yml
 {% endif %}
 
 # Additional Java OPTS
