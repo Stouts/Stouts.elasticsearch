@@ -51,4 +51,4 @@ elasticsearch_proxy_auth_users: []                # Setup users for HTTP Auth. E
                                                   # - { name: username, password: userpassword }
 
 # internal var
-elasticsearch_2x_series: "{{ elasticsearch_version|match('^2') }}"
+elasticsearch_1x_series: "{{ elasticsearch_version|match('^(1|0)') }}"
