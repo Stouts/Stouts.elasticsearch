@@ -8,6 +8,9 @@
 - name: elasticsearch-configure | Chown Elasticsearch home
   file: path={{elasticsearch_home}} state=directory owner={{elasticsearch_user}} group={{elasticsearch_group}} recurse=yes
 
+- name: elasticsearch-create-conf-dir
+  file: path={{elasticsearch_confdir}} state=directory owner={{elasticsearch_user}} group={{elasticsearch_group}} recurse=yes
+
 - name: elasticsearch-configure | Configure Elasticsearch pt. 1
   template: src=elasticsearch.yml.j2 dest={{elasticsearch_confdir}}/elasticsearch.yml owner={{elasticsearch_user}} group={{elasticsearch_group}} mode=0644
   notify: elasticsearch restart
