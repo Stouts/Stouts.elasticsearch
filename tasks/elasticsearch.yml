@@ -1,9 +1,5 @@
 ---
 
-- name: "determine if version 2 or later"
-  set_fact: elasticsearch_version_2=True
-  when: "{{ elasticsearch_version | version_compare('2.0.0','>=') }}"
-
 - include: install.deb.yml
   when: ansible_os_family == 'Debian'
   tags: [elasticsearch, elasticsearch-install]
