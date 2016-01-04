@@ -252,10 +252,11 @@ http.cors.allow-methods: {{ elasticsearch_http_cors_allow_methods }}
 # There are several types of gateway implementations. For more information,
 # see <http://elasticsearch.org/guide/reference/modules/gateway>.
 
+{% if not elasticsearch_version_2 %}
 # The default gateway type is the "local" gateway (recommended):
 #
 gateway.type: {{ elasticsearch_gateway_type }}
-
+{%endif%}
 # Settings below control how and when to start the initial recovery process on
 # a full cluster restart (to reuse as much local data as possible when using shared
 # gateway).
@@ -471,8 +472,9 @@ monitor.jvm.gc.ConcurrentMarkSweep.debug: {{ elasticsearch_gc_soncurrent_mark_sw
 
 ################################### Varia #####################################
 #
+{% if not elasticsearch_version_2 %}
 script.disable_dynamic: {{elasticsearch_script_disable_dynamic}}
-
+{%endif%}
 {% if elasticsearch_misc_auto_create_index is defined %}
 action.auto_create_index: {{ elasticsearch_misc_auto_create_index }}
 {% endif %}
