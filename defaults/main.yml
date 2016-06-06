@@ -2,6 +2,7 @@
 
 elasticsearch_enabled: yes                      # The role is enabled
 elasticsearch_version: 1.7.2                    # Elasticsearch version
+
 elasticsearch_download_url: https://download.elastic.co/elasticsearch/elasticsearch
 elasticsearch_apt_repos:
 - 'ppa:webupd8team/java'
@@ -48,3 +49,6 @@ elasticsearch_proxy_auth: no                      # Enable HTTP Auth
 elasticsearch_proxy_auth_users: []                # Setup users for HTTP Auth. Example:
                                                   # elasticsearch_proxy_auth_users:
                                                   # - { name: username, password: userpassword }
+
+# internal var
+elasticsearch_1x_series: "{{ elasticsearch_version|match('^(1|0)') }}"
