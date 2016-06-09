@@ -12,7 +12,7 @@
 
 - name: elasticsearch-install | Accept Oracle license
   shell: echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections; echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
-         creates=/usr/lib/jvm/java-7-oracle
+         creates=/usr/lib/jvm/java-8-oracle
 
 - name: elasticsearch-install | Install Java
   apt: pkg={{elasticsearch_apt_java_package}}
